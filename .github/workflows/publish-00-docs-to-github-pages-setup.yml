@@ -20,9 +20,13 @@ jobs:
           REPOSITORY=${OWNER_PLUS_REPOSITORY/$OWNER\//}
           HOMEPAGE="https://${OWNER}.github.io/${REPOSITORY}${SUFFIX}"
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}        
-          echo "If you get the error: To authenticate, please run gh auth login"
-          echo " then you need to set the actions secret \`DOCS_TOKEN\` to a personal access token"
-          echo " that has repo scope".
+          echo "If you get the error: "
+          echo "      To authenticate, please run \'gh auth login\'"
+          echo "Then: you need to set the actions secret \`DOCS_TOKEN\` to a personal access token"
+          echo "      that has repo scope".
+          echo ""
+          echo "About to run command:"
+          echo " gh repo create ${NEW_REPO} --public --description \"${DESC}\" --template ${TEMPLATE} "
           gh repo create ${NEW_REPO} --public --description "${DESC}" --template ${TEMPLATE}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}
@@ -35,6 +39,8 @@ jobs:
           REPOSITORY=${OWNER_PLUS_REPOSITORY/$OWNER\//}
           HOMEPAGE="https://${OWNER}.github.io/${REPOSITORY}${SUFFIX}"
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}
+          echo "About to run command:"
+          echo " gh repo edit ${NEW_REPO} --homepage ${HOMEPAGE}"
           gh repo edit ${NEW_REPO} --homepage ${HOMEPAGE}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}
@@ -50,6 +56,8 @@ jobs:
           REPOSITORY=${OWNER_PLUS_REPOSITORY/$OWNER\//}
           HOMEPAGE="https://${OWNER}.github.io/${REPOSITORY}${SUFFIX}"
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}        
+          echo "About to run command:"
+          echo " gh repo create ${NEW_REPO} --public --description \"${DESC}\" --template ${TEMPLATE} "
           gh repo create ${NEW_REPO} --public --description "${DESC}" --template ${TEMPLATE}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}
@@ -63,6 +71,8 @@ jobs:
           REPOSITORY=${OWNER_PLUS_REPOSITORY/$OWNER\//}
           HOMEPAGE="https://${OWNER}.github.io/${REPOSITORY}${SUFFIX}"
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}
+          echo "About to run command:"
+          echo " gh repo edit ${NEW_REPO} --homepage ${HOMEPAGE}"
           gh repo edit ${NEW_REPO} --homepage ${HOMEPAGE}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}
