@@ -20,6 +20,9 @@ jobs:
           REPOSITORY=${OWNER_PLUS_REPOSITORY/$OWNER\//}
           HOMEPAGE="https://${OWNER}.github.io/${REPOSITORY}${SUFFIX}"
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}        
+          echo "If you get the error: To authenticate, please run gh auth login"
+          echo " then you need to set the actions secret \`DOCS_TOKEN\` to a personal access token"
+          echo " that has repo scope".
           gh repo create ${NEW_REPO} --public --description "${DESC}" --template ${TEMPLATE}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}
