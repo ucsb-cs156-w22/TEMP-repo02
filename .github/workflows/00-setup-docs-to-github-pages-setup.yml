@@ -1,5 +1,5 @@
 
-name: Publish 00 docs create repos
+name: 00-Setup-Create-Docs-And-Docs-QA-Repos
 on: 
   workflow_dispatch:
 jobs:
