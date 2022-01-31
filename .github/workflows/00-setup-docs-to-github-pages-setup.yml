@@ -102,7 +102,7 @@ jobs:
           NEW_REPO=${OWNER_PLUS_REPOSITORY}${SUFFIX}
           GITHUB_PAGES_JSON='{"source":{"branch":"main","path":"/docs"}}'
           echo "curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'authorization: Bearer ${{secrets.DOCS_TOKEN}}'  https://api.github.com/repos/${OWNER_PLUS_REPOSITORY}${SUFFIX}/pages -d ${GITHUB_PAGES_JSON}"
-          curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'authorization: Bearer ${{secrets.DOCS_TOKEN}}'  https://api.github.com/repos/${OWNER_PLUS_REPOSITORY}${SUFFIX}/pages -d '${GITHUB_PAGES_JSON}'
+          curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'authorization: Bearer ${{secrets.DOCS_TOKEN}}'  https://api.github.com/repos/${OWNER_PLUS_REPOSITORY}${SUFFIX}/pages -d ${GITHUB_PAGES_JSON}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_TOKEN }}    
 
